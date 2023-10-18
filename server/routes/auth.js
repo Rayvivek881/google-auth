@@ -24,11 +24,7 @@ router.get("/google", passport.authenticate("google", ["profile", "email"]));
 
 router.get('/success', (req, res) => {
 	console.log(req.user);
-	res.status(200).json({
-		error: false,
-		message: 'Successfully Loged In',
-		user: req.user,
-	});
+	res.redirect(process.env.CLIENT_URL);
 });
 
 router.get(
